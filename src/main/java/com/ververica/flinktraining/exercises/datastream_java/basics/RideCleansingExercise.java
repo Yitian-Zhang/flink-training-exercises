@@ -19,11 +19,23 @@ package com.ververica.flinktraining.exercises.datastream_java.basics;
 import com.ververica.flinktraining.exercises.datastream_java.sources.TaxiRideSource;
 import com.ververica.flinktraining.exercises.datastream_java.datatypes.TaxiRide;
 import com.ververica.flinktraining.exercises.datastream_java.utils.ExerciseBase;
+import com.ververica.flinktraining.exercises.datastream_java.utils.GeoUtils;
 import com.ververica.flinktraining.exercises.datastream_java.utils.MissingSolutionException;
+import org.apache.flink.api.common.TaskInfo;
 import org.apache.flink.api.common.functions.FilterFunction;
+import org.apache.flink.api.common.functions.FlatMapFunction;
+import org.apache.flink.api.common.functions.MapFunction;
+import org.apache.flink.api.java.functions.KeySelector;
+import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.api.java.utils.ParameterTool;
+import org.apache.flink.calcite.shaded.com.jayway.jsonpath.Configuration;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.flink.util.Collector;
+import org.joda.time.Interval;
+import org.joda.time.Minutes;
+
+import javax.xml.crypto.Data;
 
 /**
  * The "Ride Cleansing" exercise from the Flink training
@@ -36,6 +48,7 @@ import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
  *
  */
 public class RideCleansingExercise extends ExerciseBase {
+
 	public static void main(String[] args) throws Exception {
 
 		ParameterTool params = ParameterTool.fromArgs(args);
@@ -62,11 +75,15 @@ public class RideCleansingExercise extends ExerciseBase {
 		env.execute("Taxi Ride Cleansing");
 	}
 
-	private static class NYCFilter implements FilterFunction<TaxiRide> {
+	/**
+	 * 过滤乘车的开始位置和结束位置都在New York City的记录
+	 */
+	public static class NYCFilter implements FilterFunction<TaxiRide> {
 
 		@Override
 		public boolean filter(TaxiRide taxiRide) throws Exception {
-			throw new MissingSolutionException();
+//			throw new MissingSolutionException();
+			return GeoUtils.isInNYC(taxiRide.startLon, taxiRide.startLat) && GeoUtils.isInNYC(taxiRide.endLon, taxiRide.endLat);
 		}
 	}
 

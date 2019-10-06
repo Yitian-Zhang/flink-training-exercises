@@ -72,10 +72,15 @@ public class TaxiRide implements Comparable<TaxiRide>, Serializable {
 	public boolean isStart;
 	public DateTime startTime;
 	public DateTime endTime;
+	/** 开始位置的经度 */
 	public float startLon;
+	/** 开始位置的维度 */
 	public float startLat;
+	/** 结束位置的经度 */
 	public float endLon;
+	/** 结束位置的维度 */
 	public float endLat;
+	/** 乘客的数量 */
 	public short passengerCnt;
 	public long taxiId;
 	public long driverId;

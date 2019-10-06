@@ -56,9 +56,12 @@ public class TaxiFare implements Serializable {
 	public long taxiId;
 	public long driverId;
 	public DateTime startTime;
+	/** 支付方式 */
 	public String paymentType;
 	public float tip;
+	/** 小费 */
 	public float tolls;
+	/** 总的车费 */
 	public float totalFare;
 
 	public String toString() {
