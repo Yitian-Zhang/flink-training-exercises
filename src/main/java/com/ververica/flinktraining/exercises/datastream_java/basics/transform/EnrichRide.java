@@ -1,4 +1,4 @@
-package com.ververica.flinktraining.exercises.datastream_java.basics;
+package com.ververica.flinktraining.exercises.datastream_java.basics.transform;
 
 import com.ververica.flinktraining.exercises.datastream_java.datatypes.TaxiRide;
 import com.ververica.flinktraining.exercises.datastream_java.utils.GeoUtils;

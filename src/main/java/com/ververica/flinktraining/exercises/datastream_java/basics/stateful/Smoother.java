@@ -1,4 +1,4 @@
-package com.ververica.flinktraining.exercises.datastream_java.basics;
+package com.ververica.flinktraining.exercises.datastream_java.basics.stateful;
 
 import org.apache.flink.api.common.functions.RichMapFunction;
 import org.apache.flink.api.common.state.ValueState;

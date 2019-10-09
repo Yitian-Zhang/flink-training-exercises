@@ -1,5 +1,7 @@
-package com.ververica.flinktraining.exercises.datastream_java.basics;
+package com.ververica.flinktraining.exercises.datastream_java.basics.transform;
 
+import com.ververica.flinktraining.exercises.datastream_java.basics.RideCleansingExercise;
+import com.ververica.flinktraining.exercises.datastream_java.basics.transform.EnrichRide;
 import com.ververica.flinktraining.exercises.datastream_java.datatypes.TaxiRide;
 import com.ververica.flinktraining.exercises.datastream_java.sources.TaxiRideSource;
 import com.ververica.flinktraining.exercises.datastream_java.utils.ExerciseBase;
