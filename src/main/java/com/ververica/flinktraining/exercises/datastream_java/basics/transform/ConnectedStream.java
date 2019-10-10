@@ -13,6 +13,8 @@ import org.apache.flink.util.Collector;
  * In this example a control stream is used to specify words which must be filtered out of the
  * streamOfWords.
  * A RichCoFlatMapFunction called ControllFunction is applied to the connected streams to get this done.
+ *
+ * @author yitian
  */
 public class ConnectedStream {
 
